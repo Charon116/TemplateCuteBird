@@ -1,0 +1,163 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/Order.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,400;0,700;1,900&display=swap"
+          rel="stylesheet" />
+</head>
+<body>
+    <header class="header">
+        <nav class="container mt-2">
+            <div class="d-flex justify-content-between">
+                <div class="left">
+                    <a href="/Seller/Dashboard" class="mr-4">
+                        <img src="/image/seller/logocutebird.png" style="width:40px;height:40px" alt="" />
+                        <span class="cute">Cute </span>
+                        <span class="birds">Birds</span>
+                    </a>
+                    <div class="d-inline-block">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="/Seller/Dashboard">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Seller/ManageOrder">Order</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Seller/CreateGig">Gig</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="right header__navbar-user">
+                    <a class="nav-link" href="/Home/Privacy">Switch to Buying</a>
+                    <div class="header__navbar-user-info">
+                        <img src="/image/seller/avatar.jpg" class="header__navbar-user-img" alt="">
+                        <span class="header__navbar-username">Charon</span>
+
+                        <ul class="header__navbar-user-menu">
+                            <li class="header__navbar-user-item">
+                                <a href="#">My Account</a>
+                            </li>
+                            <li class="header__navbar-user-item">
+                                <a href="#">My Order</a>
+                            </li>
+                            <li class="header__navbar-user-item header__navbar-user-item--seperate">
+                                <a href="/Home/Index">Sign Out</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1 class="text-order mt-5 mb-3">
+            Manage Order
+        </h1>
+            <div class="row order-tabs">
+                <ul class="d-flex flex-row tabs">
+                    <li class="mr-5 button-tab">ACTIVE</li>
+                    <li class="mr-5 button-tab">COMPLETED</li>
+                    <li class="mr-5 button-tab">CANCELLED</li>
+                </ul>
+            </div>
+
+            <div class="container-table bg-white mt-4">
+                <div class="row d-flex justify-content-center">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">BUYER</th>
+                                <th scope="col">GIG</th>
+                                <th scope="col">DUE ON</th>
+                                <th scope="col">TOTAL</th>
+                                <th scope="col">NOTE</th>
+                                <th scope="col">STATUS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Bim</td>
+                                <td>Template Cute Bird</td>
+                                <td>29/06/2021</td>
+                                <td>30$</td>
+                                <td>Not</td>
+                                <td>Not Active</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </div>
+
+
+
+
+    <!-- Footer -->
+    <footer class="footer text-center d-flex justify-content-between">
+        <div class="left ml-4">
+            <ul class="nav list-unstyled text-white">
+                <li class="ml-2">
+                    <a href="">Bird Market |</a>
+                </li>
+                <li class="ml-2 mr -2">
+                    <a href=""> Bird Studio | </a>
+                </li>
+                <li class="ml-2 mr -2">
+                    <a href="">Bird Tuts |</a>
+                </li>
+                <li class="ml-2 mr -2">
+                    <a href="">Placeit |</a>
+                </li>
+                <li class="ml-2 mr -2">
+                    <a href="">Share</a>
+                </li>
+            </ul>
+        </div>
+        <p>
+            <i class="fas fa-copyright mr-2"></i>
+            2021 Copyright By CuteBirds . Please contact us if you need.
+        </p>
+        <div class="right mr-4">
+            <a class="mr-2" href="https://www.youtube.com/" target="_blank">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a class="mr-2" href="https://www.facebook.com/" target="_blank">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a class="mr-2" href="https://www.instagram.com/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a class="mr-2" href="https://twitter.com/" target="_blank">
+                <i class="fab fa-twitter-square"></i>
+            </a>
+            <span href="#" class="language">
+                <i class="fas fa-globe"></i>
+                | English / Vietnamese
+            </span>
+        </div>
+    </footer>
+    <!-- BS4 - JS -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- My JS -->
+</body>
+</html>

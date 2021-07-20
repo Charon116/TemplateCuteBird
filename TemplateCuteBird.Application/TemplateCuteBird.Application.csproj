@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+	  <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.11.1" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.11.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TemplateCuteBird.Data\TemplateCuteBird.Data.csproj" />
+    <ProjectReference Include="..\TemplateCuteBird.Utilities\TemplateCuteBird.Utilities.csproj" />
+    <ProjectReference Include="..\TemplateCuteBird.ViewModels\TemplateCuteBird.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>

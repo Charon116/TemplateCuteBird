@@ -1,0 +1,176 @@
+body {
+    box-sizing: border-box;
+    font-family: "Red Hat Display", sans-serif;
+    height: 100vh;
+    width: 100%;
+    background-color: #F8F8F8;
+}
+
+.header .left a {
+    text-decoration: none;
+}
+.header .left .cute {
+    color: #000;
+}
+.header .left .birds {
+    color: #42ade2;
+}
+
+.header .left .nav a{
+    color: #2b1f1f;
+}
+.header .right .nav a {
+    color: #2b1f1f;
+    font-weight: 600;
+}
+.header__navbar-user{
+    display: flex;
+    justify-items: center;
+    position: relative;
+}
+.header__navbar-user-info{
+    display: flex;
+    align-self: center;
+}
+.header__navbar-user-img{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+.header__navbar-username{
+    margin-left: 5px;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+.header__navbar-user-info:hover .header__navbar-user-menu{
+    display: block;
+}
+
+.header__navbar-user-menu{
+    position: absolute;
+    padding-left: 0;
+    top: 100%;
+    right: 0;
+    width: 160px;
+    background-color: #fff;
+    border-radius: 2px;
+    list-style: none;
+    z-index: 1;
+    box-shadow: 0 1px 1px #ccc;
+    display: none;
+}
+.header__navbar-user-menu::before{
+    content: "";
+    border-width: 20px 27px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+    position: absolute;
+    right: 4px;
+    top: -30px;
+}
+.header__navbar-user-menu::after{
+    content: "";
+    display: block;
+    position: absolute;
+    top: -8px;
+    right: 0;
+    width: 60%;
+    height: 8px;
+}
+.header__navbar-user-item--seperate{
+    border-top: 1px solid rgba(0,0,0,0.5);
+}
+.header__navbar-user-item a{
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 0.8rem;
+    padding: 8px 16px;
+    display: block;
+}
+.header__navbar-user-item a:first-child{
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+.header__navbar-user-item a:last-child{
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+.header__navbar-user-item a:hover{
+    background-color: #fafafa;
+}
+.dashboard{
+    background-color: #fff;
+    height: 350px;
+}
+.avatar-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+.name{
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+.notify{
+    background-color: #fff;
+    height: 400px;
+    width: 750px;
+}
+.header__navbar-seperate{
+    border-top: 1px solid rgba(238, 238, 238, 0.652);
+}
+.rate{
+
+}
+.info-rate{
+    list-style: none;
+}
+.text-rate{
+    font-size: 1rem;
+    font-weight: 500;
+}
+.text-rate-earn{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.money{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.icon{
+    color: #42ade2;
+}
+.text-noticed{
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+.text-dashboard{
+    text-align: justify;
+    height: 150px;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+.button-dashboard{
+    margin-left: 100px;
+}
+footer.footer {
+    background-color: #5e5e5e;
+    height: 70px;
+    line-height: 70px;
+    margin-top: 100px;
+}
+footer .left li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer .right a{
+    color: #000;
+    font-size: larger;
+}
+.footer .right .language{
+    font-size: large;
+    color: #000;
+}

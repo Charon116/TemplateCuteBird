@@ -1,0 +1,36 @@
+﻿@model List<TemplateCuteBird.ViewModels.Catalog.Categories.CategoryViewModel>
+
+    <div class="category mb-4 mt-3">
+        <ul class="nav justify-content-between">
+            @{
+                var parents = Model.Where(x => x.ParentId == null);
+            }
+            @for(int index = 0;index <parents.Count(); index ++)
+            {
+                var parent = parents.ElementAt(index);
+                var children = Model.Where(x => x.ParentId == parent.Id);
+                if (children.Any())
+                {
+                    <li class="nav-item">
+                        <a class="nav-link active pl-0" style="margin-left: 4px" href="#">@parent.Name</a>
+                        <ul>
+                            @foreach (var item in children)
+                            {
+                                var url = $"/categories/{item.Id}";
+                                <li class="nav-item">
+                                    <a class="nav-link" href="@url">@item.Name</a>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                }
+                else
+                {
+                    var url = $"/categories/{parent.Id}";
+                    <li class="nav-item">
+                        <a class="nav-link" href="@url">@parent.Name</a>
+                    </li>
+                }
+            }
+        </ul>
+    </div>

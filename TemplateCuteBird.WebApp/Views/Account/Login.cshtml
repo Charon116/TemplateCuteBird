@@ -1,0 +1,66 @@
+﻿@model TemplateCuteBird.ViewModels.Systems.Users.LoginRequest
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/themify-icons/themify-icons.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="wrapped">
+            <div class="container">
+                <div class="left-image">
+                    <img src="/image/signinsignup/clipart1250162.png" alt="">
+                </div>
+
+
+                <div class="right-sign">
+                    <div class="form-main">
+                        <!-- form -->
+                        <div class="login-table">
+                            <a class="icon-login Google" href="#"><i class="ti-google"></i>Continue with Google</a>
+                            <a class="icon-login Facebook" href="#"><i class="ti-facebook"></i>Continue with Facebook</a>
+                        </div>
+
+                        <div style="color: #ccc;" class="text-divider"> Or </div>
+
+                        <form action="/Account/Login" method="post" class="form">
+                            <div class="flex-form">
+                                <label class="nameLabel" for="nameFisrt">Username </label>
+                                <input class="nameInput" type="text" asp-for="UserName">
+                            </div>
+                            <div class="flex-form">
+                                <label class="nameLabel" for="nameLast">Password</label>
+                                <input class="nameInput" type="password" asp-for="Password">
+                            </div>
+                        <button type="submit"  class="sign-up-btn">Sign in</button>
+                        </form>
+
+                        
+                            <!-- <div class="log-btn">Sign in</div> -->
+                        
+
+                        <div class="create-forgot">
+                            <a style="color:rgb(0, 139, 255);font-weight: 600;" href="RegisterForm.html">Create a Cute Bird Account</a>
+                            <a style="color: #333;" href="Forgetpassword.html">Forgot Password</a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

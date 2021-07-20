@@ -1,0 +1,155 @@
+/* Reset css */
+
+html{
+    background-image: linear-gradient(white,rgb(207,238,251));
+}    
+
+
+html,body{
+    padding: 0px;
+    margin: 0px;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+a{
+    text-decoration: none;
+    
+}
+
+.wrapped{
+    background-color: #fff;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    min-width: 1200px;
+    margin: 0 auto;
+}
+
+.left-image{
+    margin-top: 100px;
+    flex: 1;
+    align-items: flex-start;
+    padding-left: 40px;
+    padding-right: 120px;
+    display: flex;
+    flex-direction: column;
+}
+
+.right-sign{
+    flex: 1;
+}
+
+.form-main{
+    height: 500px;
+    width: 400px;
+    margin: 48px;
+    padding: 40px 24px;
+    border: 1px solid #ccc;
+    min-height: 500px;
+    border-radius: 8px;
+    align-self: center;
+    box-sizing: border-box;
+}
+
+.login-table{
+    display: flex;
+    flex-direction: column;
+}
+
+.icon-login{
+    display: flex;
+    padding: 10px;
+    border: solid 1px #ccc;
+    border-radius: 4px;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.Google,.Facebook{
+    font-weight: 600;
+}
+
+.Google{
+    color: #333;
+    border-color: blue;
+}
+
+.Facebook{
+    color: #fff;
+    background-color: #4267b2;
+}
+
+.text-divider {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+  }
+  .text-divider::before,
+  .text-divider::after {
+    content: '';
+    height: 1px;
+    background-color: #ccc;
+    flex-grow: 1;
+  }
+  .text-divider::before {
+    margin-right: var(--text-divider-gap);
+  }
+  .text-divider::after {
+    margin-left: var(--text-divider-gap);
+  }
+
+  .form{
+      display: flex;
+      flex-direction: column;
+      margin-top: 16px;
+  }
+
+  .flex-form{
+      display: flex;
+      flex-direction: column;
+      margin: 8px 0;
+  }
+
+  .nameLabel{
+      font-weight: bold;
+      margin-bottom: 4px;
+  }
+
+  .nameInput{
+      padding: 12px;
+      border-radius: 4px;
+      border:solid 1px #ccc;
+      outline-color: rgb(207,238,251);
+  }
+  .log-btn{
+    color: #fff;
+  }
+
+  .sign-up-btn{
+      display: flex;
+      border:solid 1px none;
+      background-color: #42ADE2;
+      padding: 12px;
+      border-radius: 6px;
+      color: #fff;
+      justify-content: center;
+      margin-top: 20px;
+      cursor: pointer;
+  }
+
+  .create-forgot{
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+      margin-top: 8px;
+  }

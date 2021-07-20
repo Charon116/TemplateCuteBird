@@ -1,0 +1,132 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="/css/Payment1.css" />
+<link rel="stylesheet" href="/css/Payment2.css" />
+
+<div class="container payment-container">
+    <div class="form-container align-items-center mt-5">
+        <div class="payment-left">
+            <div class="payment-title text-capitalize mt-3">
+                Confirm your payment
+            </div>
+            <form>
+                <div class="first-line-input  mt-3">
+                    <div class="input-group mb-3  pt-5 col-9">
+                        <label>Full Name</label>
+                        <input type="text" name="fullname" placeholder="">
+                    </div>
+                    <div class="input-group cvv mb-3 pt-5 col-3">
+                        <label>CVV</label>
+                        <input type="text" name="cvv" placeholder="">
+                    </div>
+                </div>
+
+                <div class="input-group mb-3 mt-3 col-12">
+                    <label>Card Number</label>
+                    <input type="text" name="cvv" placeholder="">
+                </div>
+                <div class="final-line mt-3 col-12">
+                    <div class="input-date input-group mt-3">
+                        <label>Date</label>
+                        <div class="date-select">
+                            <select>
+                                <option>January</option>
+                                <option>February</option>
+                                <option>Match</option>
+                                <option>April</option>
+                                <option>May</option>
+                                <option>June</option>
+                                <option>July</option>
+                                <option>August</option>
+                                <option>September</option>
+                                <option>October</option>
+                                <option>November</option>
+                                <option>December</option>
+                            </select>
+                            <select>
+                                <option>2020</option>
+                                <option>2021</option>
+                                <option>2022</option>
+                                <option>2023</option>
+                                <option>2024</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="paypal-symboy">
+                        <i class="fab fa-cc-paypal fa-2x"></i>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="payment-right mt-5">
+        <div class="payment-detail-top pt-3">
+            <div class="pm-dt-top-general col-12 pb-4">
+                <div class="general-image ml-3">
+                    <img src="/image/payment/payment.jpg">
+                </div>
+                <div class="general-content ml-3">
+                    Cute girl swinging and reading a book in autumn park.
+                    Vector illustration
+                </div>
+            </div>
+            <div class="space-top ml-4">
+            </div>
+            <div class="pm-dt-top-infor">
+                <div class="pm-dt-dt-product mt-4 col-12">
+                    <div class="pm-product-name">
+                        Diamond
+                    </div>
+                    <div class="pm-product-price">
+                        $90
+                    </div>
+                </div>
+                <ul class="pm-dt-list mt-3">
+                    <li>Quality 4K</li>
+                    <li>Unlimited Download</li>
+                    <li>No Fee</li>
+                    <li>Discount 10%</li>
+                </ul>
+            </div>
+        </div>
+        <div class="space">
+
+        </div>
+        <div class="payment-detail-bottom">
+            <div class="pm-dt-dt-product mt-5 col-12">
+                <div class="pm-product-name">
+                    Total
+                </div>
+                <div class="pm-product-price">
+                    $90
+                </div>
+            </div>
+            <div class="pm-dt-dt-product mt-3 col-12">
+                <div class="pm-product-name">
+                    Service Fee
+                </div>
+                <div class="pm-product-price">
+                    $0
+                </div>
+            </div>
+        </div>
+        <div class="mt-4 button-confirm mb-4">
+            <div id="paypal-button-container"></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
+
+<script>
+    // Render the PayPal button into #paypal-button-container
+    paypal.Buttons({
+        style: {
+            layout: 'horizontal'
+        }
+    }).render('#paypal-button-container');
+</script>

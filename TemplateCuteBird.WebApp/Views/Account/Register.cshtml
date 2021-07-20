@@ -1,0 +1,121 @@
+﻿@model TemplateCuteBird.ViewModels.Systems.Users.RegisterRequest
+@{
+    ViewData["Title"] = "Register";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cute Bird Register</title>
+    <link rel="icon" href="/image/register/IconBird.png" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="/css/signup.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+</head>
+
+<body>
+    <div class="container main mt-5">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="left-form">
+                    <h1 class="create-line font-weight-bold mt-5">Create a free account</h1>
+                    <div class="leftbot">
+                        <div class="get-line">Get 7 free files every month</div>
+                        <div class="left-img">
+                            <img class="img-main" style="width:120px;height:90px" src="/image/register/516664.jpg" alt="">
+                            <img class="img-main" style="width:120px;height:90px" src="/image/register/303042.png" alt="">
+                            <img class="img-main" style="width:120px;height:90px" src="/image/register/587597.jpg" alt="">
+                            <img class="img-main" style="width:120px;height:90px" src="/image/register/736461.png" alt="">
+                            <div style="opacity: 0.5;" class="img-main">+3 more</div>
+                        </div>
+                    </div>
+                    <div class="get-line">Save assets into your own collections</div>
+                    <div class="leftbottom">
+                        <div class="box1 box">
+                            <img class="grid-item" style="width:120px;height:90px" src="/image/register/background-2340768_1280.jpg" alt="">
+                            <img class="grid-item" style="width:120px;height:90px" src="/image/register/tamplte.jpg" alt="">
+                            <img class="grid-item" style="width:120px;height:90px" src="/image/register/wp4594445-dreaming-wallpapers.jpg" alt="">
+                            <img class="grid-item" style="width:120px;height:90px" src="/image/register/wp9119623-thunder-sky-wallpapers.jpg" alt="">
+                            <div class="line-box">My teamplate collections</div>
+                        </div>
+                        <div class="box2 box">
+                            <img class="grid-item" style="width:120px;height:90px" src="/image/register/font1.jpg" alt="">
+                            <img class="grid-item" style="width:120px;height:90px" src="/image/register/font2.png" alt="">
+                            <img class="grid-item" style="width:120px;height:90px" src="/image/register/font3.jpg" alt="">
+                            <img class="grid-item" style="width:120px;height:90px" src="/image/register/font4.png" alt="">
+                            <div class="line-box">My favorite icons</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="form-right">
+                    <div class="border rounded">
+                        <div class="form-sign-in">
+                            <h3 class="text_sign_up font-weight-bold mt-5">Sign up</h3>
+                            <form asp-action="Register" asp-controller="Account" method="post">
+                                <div asp-validation-summary="All" class="text-danger">
+                                    
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="form-group col-lg-6">
+                                        <label for="">First name</label>
+                                        <input type="text" asp-for="FirstName" class="form-control" placeholder="First Name">
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label for="">Last name</label>
+                                        <input type="text" asp-for="LastName" class="form-control" placeholder="Last Name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Email</label>
+                                    <input type="email" asp-for="Email" class="form-control" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Username</label>
+                                    <input type="text" asp-for="UserName" class="form-control" placeholder="User Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Password</label>
+                                    <input type="password" asp-for="Password" class="form-control" placeholder="Password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Confirm Password <sup>*</sup></label>
+                                    <input type="password" asp-for="ConfirmPassword" class="form-control" placeholder="Confirm Password">
+                                </div>
+                                <h6 class="text-form mb-4">
+                                    Use 8 or more characters with a mix of letters, numbers and
+                                    symbols.
+                                    Must not contain your name or username.
+                                </h6>
+                                <button type="submit" class="btn btn-create font-weight-bold" style="background-color: rgb(66, 173, 226);color:#fff">
+                                    Create a Cute Bird
+                                    Account
+                                </button>
+                                <div class="text-center font-weight-bold text-sign-in mt-1">
+                                    Already an Cute Bird Account? <a href="">Sign in here</a>
+                                </div>
+                                <div class="border line-text"></div>
+                                <div class="text-end text-center">
+                                    Cute Bird collects and uses personal data in
+                                    accordance
+                                    with our <a href="">Privacy Policy.</a> By creating an account, you agree to our <a href="">Terms and Conditions.</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </body>
+
+</html>
+
+

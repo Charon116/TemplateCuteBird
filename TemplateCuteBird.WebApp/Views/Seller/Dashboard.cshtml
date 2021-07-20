@@ -1,0 +1,212 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/Seller.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,400;0,700;1,900&display=swap"
+          rel="stylesheet" />
+</head>
+<body>
+    <header class="header">
+        <nav class="container mt-2">
+            <div class="d-flex justify-content-between">
+                <div class="left">
+                    <a href="/Seller/Dashboard" class="mr-4">
+                        <img src="/image/seller/logocutebird.png" style="width:40px;height:40px" alt="" />
+                        <span class="cute">Cute </span>
+                        <span class="birds">Birds</span>
+                    </a>
+                    <div class="d-inline-block">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="/Seller/Dashboard">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Seller/ManageOrder">Order</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Seller/CreateGig">Gig</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="right header__navbar-user">
+                    <a class="nav-link" href="/Home/Privacy">Switch to Buying</a>
+                    <div class="header__navbar-user-info">
+                        <img src="/image/seller/avatar.jpg" class="header__navbar-user-img" alt="">
+                        <span class="header__navbar-username">Charon</span>
+
+                        <ul class="header__navbar-user-menu">
+                            <li class="header__navbar-user-item">
+                                <a href="#">My Account</a>
+                            </li>
+                            <li class="header__navbar-user-item">
+                                <a href="#">My Order</a>
+                            </li>
+                            <li class="header__navbar-user-item header__navbar-user-item--seperate">
+                                <a href="/Home/Index">Sign Out</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="row mb-3 d-flex justify-content-between">
+            <div class="col-3 dashboard mt-5 ">
+                <div class="info d-flex justify-content-space-around">
+                    <div class="avatar mt-2">
+                        <img src="/image/seller/avatar.jpg" class="d-inline-block align-top avatar-img" alt="">
+                    </div>
+                    <div class="name ml-5 mt-2 d-flex align-items-center" alt="">Charon</div>
+                </div>
+                <div class="header__navbar-seperate mt-2 mb-2"></div>
+                <div class="rate d-flex">
+                    <div class="row">
+                        <ul>
+                            <li class="info-rate ">
+                                <div class="row d-flex justify-content-between mb-4">
+                                    <div class="text-rate ">Comment response rate </div>
+                                    <div class="rate-percent ml-3">100%</div>
+                                </div>
+                            </li>
+                            <li class="info-rate ">
+                                <div class="row d-flex justify-content-between mb-4">
+                                    <div class="text-rate ">Vote response rate </div>
+                                    <div class="rate-percent ml-3">100%</div>
+                                </div>
+                            </li>
+                            <li class="info-rate ">
+                                <div class="row d-flex justify-content-between mb-4">
+                                    <div class="text-rate ">Order response rate </div>
+                                    <div class="rate-percent ml-3">100%</div>
+                                </div>
+                            </li>
+                            <li class="info-rate ">
+                                <div class="row d-flex justify-content-between mb-4">
+                                    <div class="text-rate ">Order completion </div>
+                                    <div class="rate-percent ml-3 d-flex align-items-center">100%</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="header__navbar-seperate mt-2 mb-2"></div>
+                <div class="earn ">
+                    <div class="row d-flex mb-3">
+                        <div class="text-rate-earn ml-4">Earned in June</div>
+                        <div class="money ml-4">$1531.42</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8 notify mt-5 ml-1">
+                <div class="intro mt-3">
+                    <h4 class="text-center font-weight-bold mb-3">
+                        Task these teps to become to a seller Cute Birds
+                    </h4>
+                </div>
+
+                <div class="row d-flex justify-content-center mt-2">
+                    <div class="gigs col-6">
+                        <i class="fas fa-flag-checkered fa-3x d-flex justify-content-center icon"></i>
+                        <h3 class="text-noticed d-flex justify-content-center mt-2">GET NOTICED</h3>
+                        <p class="text-dashboard">
+                            Tap into the power of social media by sharing your Gig,
+                            and get expert help to grow your impact.
+                        </p>
+                        <button class="
+                            common
+                            btn btn-primary
+                            d-flex
+                            justify-content-center
+                            text-white
+                            font-weight-bold
+                            button-dashboard
+                          ">
+                            Share your gigs
+                        </button>
+                    </div>
+                    <div class="skills col-6">
+                        <i class="fas fa-book-open fa-3x d-flex justify-content-center icon"></i>
+                        <h3 class="text-noticed d-flex justify-content-center mt-2">GET NOTICED</h3>
+                        <p class="text-dashboard">
+                            Hone your skills and expand your knowledge with online
+                            courses. You’ll be able to offer more services and gain more exposure with every course completed.
+                        </p>
+                        <button class="common btn btn-primary text-white font-weight-bold button-dashboard">
+                            Learn your skills
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="footer text-center d-flex justify-content-between">
+        <div class="left ml-4">
+            <ul class="nav list-unstyled text-white">
+                <li class="ml-2">
+                    <a href="">Bird Market |</a>
+                </li>
+                <li class="ml-2 mr -2">
+                    <a href=""> Bird Studio | </a>
+                </li>
+                <li class="ml-2 mr -2">
+                    <a href="">Bird Tuts |</a>
+                </li>
+                <li class="ml-2 mr -2">
+                    <a href="">Placeit |</a>
+                </li>
+                <li class="ml-2 mr -2">
+                    <a href="">Share</a>
+                </li>
+            </ul>
+        </div>
+        <p>
+            <i class="fas fa-copyright mr-2"></i>
+            2021 Copyright By CuteBirds . Please contact us if you need.
+        </p>
+        <div class="right mr-4">
+            <a class="mr-2" href="https://www.youtube.com/" target="_blank">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a class="mr-2" href="https://www.facebook.com/" target="_blank">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a class="mr-2" href="https://www.instagram.com/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a class="mr-2" href="https://twitter.com/" target="_blank">
+                <i class="fab fa-twitter-square"></i>
+            </a>
+            <span href="#" class="language">
+                <i class="fas fa-globe"></i>
+                | English / Vietnamese
+            </span>
+        </div>
+    </footer>
+    <!-- BS4 - JS -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- My JS -->
+</body>
+</html>

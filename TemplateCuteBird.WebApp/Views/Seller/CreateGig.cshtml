@@ -1,0 +1,195 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/Gig.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,400;0,700;1,900&display=swap"
+          rel="stylesheet" />
+</head>
+<body>
+    <header class="header">
+        <nav class="container mt-2">
+            <div class="d-flex justify-content-between">
+                <div class="left">
+                    <a href="/Seller/Dashboard" class="mr-4">
+                        <img src="/image/seller/logocutebird.png" style="width:40px;height:40px" alt="" />
+                        <span class="cute">Cute </span>
+                        <span class="birds">Birds</span>
+                    </a>
+                    <div class="d-inline-block">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="/Seller/Dashboard">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Seller/ManageOrder">Order</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Seller/CreateGig">Gig</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="right header__navbar-user">
+                    <a class="nav-link" href="/Home/Privacy">Switch to Buying</a>
+                    <div class="header__navbar-user-info">
+                        <img src="/image/seller/avatar.jpg" class="header__navbar-user-img" alt="">
+                        <span class="header__navbar-username">Charon</span>
+
+                        <ul class="header__navbar-user-menu">
+                            <li class="header__navbar-user-item">
+                                <a href="#">My Account</a>
+                            </li>
+                            <li class="header__navbar-user-item">
+                                <a href="#">My Order</a>
+                            </li>
+                            <li class="header__navbar-user-item header__navbar-user-item--seperate">
+                                <a href="/Home/Index">Sign Out</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="container bg-white mt-4">
+        <div class="row mb-3 d-flex justify-content-between">
+            <form class="form-gig mt-3 col-12">
+                <div class="row gig-title mt-2 mb-4">
+                    <div class="col-3">
+                        <span>GIG TITLE</span>
+                    </div>
+                    <div class="col-9">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="row gig-category mb-4">
+                    <div class="col-3">
+                        <span>CATEGORY</span>
+                    </div>
+                    <div class="col-9">
+                        <select class="form-control">
+                            <option>App Design</option>
+                            <option>Fonts</option>
+                            <option>Template</option>
+                            <option>Illustrations</option>
+                            <option>Photo Image</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row gig-detail mb-4">
+                    <div class="col-3">
+                        <span>DETAIL GIG</span>
+                    </div>
+                    <div class="col-9">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Describe the details of your products"></textarea>
+                    </div>
+                </div>
+                <div class="row gig-text ">
+                    <div class="col-12">
+                        <p>IMAGES (UP TO 3)</p>
+                    </div>
+                </div>
+                <div class="row gig-text mt-1 mb-3">
+                    <div class="col-12">
+                        <p>Get noticed by the right buyers with visual examples of your services.</p>
+                    </div>
+                </div>
+                <div class="row gig-image mb-5 ">
+
+                    <div class="col-3 gig-image-input">
+                        <i class="fas fa-images fa-3x d-flex justify-content-center icon mt-1"></i>
+                        <p class="d-flex justify-content-center">Drag a photo or</p>
+                        <input type="file" name="uploadfile" id="img" style="display:none;" />
+                        <label for="img" class="d-flex justify-content-center text-primary button-browse">Browse</label>
+                    </div>
+                    <div class="col-3 gig-image-input"></div>
+                    <div class="col-3 gig-image-input"></div>
+
+                </div>
+                <div class="row gig-money mt-5">
+                    <div class="col-3">
+                        <span>PRICE</span>
+                    </div>
+                    <div class="col-9 d-flex justify-content-space-around">
+                        <input type="number" class="form-control col-sm-2" id="inputNumber">
+                        <span class="dollar">$</span>
+                    </div>
+                </div>
+                <div class="row mt-5 mb-3">
+                    <button type="button" class="btn btn-primary button-save">Save & Continue</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+    <!-- Footer -->
+    <footer class="footer text-center d-flex justify-content-between">
+        <div class="left ml-4">
+            <ul class="nav list-unstyled text-white">
+                <li class="ml-2">
+                    <a href="">Bird Market |</a>
+                </li>
+                <li class="ml-2 mr -2">
+                    <a href=""> Bird Studio | </a>
+                </li>
+                <li class="ml-2 mr -2">
+                    <a href="">Bird Tuts |</a>
+                </li>
+                <li class="ml-2 mr -2">
+                    <a href="">Placeit |</a>
+                </li>
+                <li class="ml-2 mr -2">
+                    <a href="">Share</a>
+                </li>
+            </ul>
+        </div>
+        <p>
+            <i class="fas fa-copyright mr-2"></i>
+            2021 Copyright By CuteBirds . Please contact us if you need.
+        </p>
+        <div class="right mr-4">
+            <a class="mr-2" href="https://www.youtube.com/" target="_blank">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a class="mr-2" href="https://www.facebook.com/" target="_blank">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a class="mr-2" href="https://www.instagram.com/" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a class="mr-2" href="https://twitter.com/" target="_blank">
+                <i class="fab fa-twitter-square"></i>
+            </a>
+            <span href="#" class="language">
+                <i class="fas fa-globe"></i>
+                | English / Vietnamese
+            </span>
+        </div>
+    </footer>
+
+    <!-- BS4 - JS -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- My JS -->
+</body>
+</html>

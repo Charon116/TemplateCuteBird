@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TemplateCuteBird.Utilities\TemplateCuteBird.Utilities.csproj" />
+    <ProjectReference Include="..\TemplateCuteBird.ViewModels\TemplateCuteBird.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>
