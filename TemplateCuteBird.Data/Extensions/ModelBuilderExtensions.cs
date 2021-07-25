@@ -48,9 +48,10 @@ namespace TemplateCuteBird.Data.Extensions
               new Slide() { Id = 1, Name = "Second Thumbnail label", Description = "Template Cute Bird", SortOrder = 1, Url = "#", Image = "./image/user/carousel1.jpg", Status = Status.Active },
               new Slide() { Id = 2, Name = "Second Thumbnail label", Description = "Template Cute Bird", SortOrder = 2, Url = "#", Image = "./image/user/carousel2.jpg", Status = Status.Active },
               new Slide() { Id = 3, Name = "Second Thumbnail label", Description = "Template Cute Bird", SortOrder = 3, Url = "#", Image = "./image/user/carousel3.jpg", Status = Status.Active }
-              
-              
-              );
+            );
+
+
+
         }
     }
 }

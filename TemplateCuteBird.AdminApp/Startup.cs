@@ -26,8 +26,6 @@ namespace TemplateCuteBird.AdminApp
         {
             services.AddHttpClient();
 
-            
-
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>
                 {

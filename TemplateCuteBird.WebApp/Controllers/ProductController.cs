@@ -45,5 +45,21 @@ namespace TemplateCuteBird.WebApp.Controllers
                 Products = products
             });
         }
+
+        public async Task<IActionResult> Payment(int? id)
+        {
+            if (id != null)
+            {
+                var product = await _productApiClient.GetById(id.Value);
+                return View(new ProductDetailViewModel()
+                {
+                    Product = product,
+
+                });
+            }
+            else {
+                return Redirect("/");
+            }
+        }
     }
 }

@@ -88,6 +88,14 @@ namespace TemplateCuteBird.WebApp
                     });
 
                 endpoints.MapControllerRoute(
+                    name: "Template Checkout",
+                    pattern: "/products/{id}", new
+                    {
+                        controller = "Product",
+                        action = "Payment"
+                    });
+
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });

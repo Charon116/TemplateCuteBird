@@ -33,7 +33,7 @@ namespace TemplateCuteBird.Application.Catalog.Categories
         public async Task<CategoryViewModel> GetById(int id)
         {
             var query = from c in _context.Categories
-                        select new { c};
+                        select new {c};
             return await query.Select(x => new CategoryViewModel()
             {
                 Id = x.c.Id,

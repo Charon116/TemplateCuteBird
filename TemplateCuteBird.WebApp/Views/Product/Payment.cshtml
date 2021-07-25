@@ -1,8 +1,10 @@
-﻿
+﻿@model ProductDetailViewModel
+@inject Microsoft.Extensions.Configuration.IConfiguration Configuration;
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Payment";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <link rel="stylesheet" href="/css/Payment1.css" />
 <link rel="stylesheet" href="/css/Payment2.css" />
 
@@ -67,11 +69,10 @@
         <div class="payment-detail-top pt-3">
             <div class="pm-dt-top-general col-12 pb-4">
                 <div class="general-image ml-3">
-                    <img src="/image/payment/payment.jpg">
+                    <img src="@(Configuration["BaseAddress"] + Model.Product.ThumbnailImage)" style="width:500px;height:300px" class="img-fluid picture" alt="Mes image error" title="@Model.Product.Name">
                 </div>
                 <div class="general-content ml-3">
-                    Cute girl swinging and reading a book in autumn park.
-                    Vector illustration
+                    @Model.Product.Title
                 </div>
             </div>
             <div class="space-top ml-4">
@@ -79,18 +80,13 @@
             <div class="pm-dt-top-infor">
                 <div class="pm-dt-dt-product mt-4 col-12">
                     <div class="pm-product-name">
-                        Diamond
+                        @Model.Product.Name
                     </div>
                     <div class="pm-product-price">
-                        $90
+                        @Model.Product.Price
                     </div>
                 </div>
-                <ul class="pm-dt-list mt-3">
-                    <li>Quality 4K</li>
-                    <li>Unlimited Download</li>
-                    <li>No Fee</li>
-                    <li>Discount 10%</li>
-                </ul>
+
             </div>
         </div>
         <div class="space">
@@ -99,18 +95,10 @@
         <div class="payment-detail-bottom">
             <div class="pm-dt-dt-product mt-5 col-12">
                 <div class="pm-product-name">
-                    Total
+                    @Model.Product.Name
                 </div>
                 <div class="pm-product-price">
-                    $90
-                </div>
-            </div>
-            <div class="pm-dt-dt-product mt-3 col-12">
-                <div class="pm-product-name">
-                    Service Fee
-                </div>
-                <div class="pm-product-price">
-                    $0
+                    @Model.Product.Price
                 </div>
             </div>
         </div>
@@ -130,3 +118,4 @@
         }
     }).render('#paypal-button-container');
 </script>
+

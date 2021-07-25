@@ -21,9 +21,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Hosts", "3.Hosts", "{00F3
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemplateCuteBird.AdminApp", "TemplateCuteBird.AdminApp\TemplateCuteBird.AdminApp.csproj", "{7C46CAED-32CC-46FB-B336-DA0A63714154}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplateCuteBird.WebApp", "TemplateCuteBird.WebApp\TemplateCuteBird.WebApp.csproj", "{A37D26C5-05A1-4841-A526-A874A9629C27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemplateCuteBird.WebApp", "TemplateCuteBird.WebApp\TemplateCuteBird.WebApp.csproj", "{A37D26C5-05A1-4841-A526-A874A9629C27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplateCuteBird.ApiIntegration", "TemplateCuteBird.ApiIntegration\TemplateCuteBird.ApiIntegration.csproj", "{BA7B691B-B27B-427D-9174-6043749F9842}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemplateCuteBird.ApiIntegration", "TemplateCuteBird.ApiIntegration\TemplateCuteBird.ApiIntegration.csproj", "{BA7B691B-B27B-427D-9174-6043749F9842}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.Document and Plan", "0.Document and Plan", "{5375720C-9B1D-4AFC-A65A-1107D0381DE5}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

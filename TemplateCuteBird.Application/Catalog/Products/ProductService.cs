@@ -26,7 +26,7 @@ namespace TemplateCuteBird.Application.Catalog.Products
         {
             _context = context;
             _storageService = storageService;
-            
+
         }
         public async Task<int> Create(ProductCreateRequest request)
         {
@@ -84,7 +84,7 @@ namespace TemplateCuteBird.Application.Catalog.Products
                         from c in picc.DefaultIfEmpty()
                         join pi in _context.ProductImages on p.Id equals pi.ProductId into ppi
                         from pi in ppi.DefaultIfEmpty()
-                        select new { p, pi, pic};
+                        select new { p, pi, pic };
             //2. filter
 
 
@@ -163,14 +163,18 @@ namespace TemplateCuteBird.Application.Catalog.Products
         public async Task<ProductViewModel> GetById(int productId)
         {
             var product = await _context.Products.FindAsync(productId);
-        
-            var image = await _context.ProductImages.Where(x => x.ProductId == productId && x.IsDefault == true).FirstOrDefaultAsync();
+
+            if (product == null) return null;
+
+            var image = await _context.ProductImages.FirstOrDefaultAsync(x => x.ProductId == productId && x.IsDefault == true);//.FirstOrDefaultAsync();
 
             var categories = await (from c in _context.Categories
                                     join pic in _context.ProductInCategories on c.Id equals pic.CategoryId
-                                    where pic.ProductId == productId 
-                                    select c.Name).ToListAsync();
-
+                                    where pic.ProductId == productId
+                                    group c by new { Name = c.Name }
+                                    into dataGroup
+                                    select dataGroup.Key.Name)/*.Distinct()*/
+                                    .ToListAsync();
 
             var productViewModel = new ProductViewModel()
             {
@@ -268,7 +272,7 @@ namespace TemplateCuteBird.Application.Catalog.Products
             };
             return viewModel;
         }
-        public async Task<PagedResult<ProductViewModel>> GetAllByCategoryById(string Name,GetPublicProductPagingRequest request)
+        public async Task<PagedResult<ProductViewModel>> GetAllByCategoryById(string Name, GetPublicProductPagingRequest request)
         {
             var query = from p in _context.Products
                         join pic in _context.ProductInCategories on p.Id equals pic.ProductId

@@ -37,7 +37,8 @@ namespace TemplateCuteBird.BackendApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<TemplateShopDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString(SystemConstants.MainConnectionString)));
+                options.UseSqlServer(Configuration.GetConnectionString(SystemConstants.MainConnectionString))
+            );
             services.AddIdentity<AppUser, AppRole>()
                 .AddEntityFrameworkStores<TemplateShopDbContext>()
                 .AddDefaultTokenProviders();
@@ -55,6 +56,7 @@ namespace TemplateCuteBird.BackendApi
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IRoleService, RoleService>();
             services.AddTransient<ISlideService, SlideService>();
+            
 
             //services.AddTransient<IValidator<LoginRequest>, LoginRequestValidator>();
             //services.AddTransient<IValidator<RegisterRequest>, RegisterRequestValidator>();
