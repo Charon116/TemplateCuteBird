@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using TemplateCuteBird.Utilities.Constants;
 using TemplateCuteBird.ViewModels.Catalog.Products;
 using TemplateCuteBird.ViewModels.Common;
+using TemplateCuteBird.ViewModels.Systems.Users;
 
 namespace TemplateCuteBird.ApiIntegration
 {
@@ -103,6 +104,21 @@ namespace TemplateCuteBird.ApiIntegration
         {
             var data = await GetListAsync<ProductViewModel>($"/api/products/userProduct/{take}");
             return data;
+        }
+
+        public async Task<ApiResult<int>> Delete(int Id)
+        {
+            var sessions = _httpContextAccessor.HttpContext.Session.GetString("Token");
+            var client = _httpClientFactory.CreateClient();
+            client.BaseAddress = new Uri(_configuration["BaseAddress"]);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", sessions);
+            var response = await client.DeleteAsync($"/api/products/{Id}");
+            var body = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+                return JsonConvert.DeserializeObject<ApiSuccessResult<int>>(body);
+
+            return JsonConvert.DeserializeObject<ApiErrorResult<int>>(body);
         }
     }
 }

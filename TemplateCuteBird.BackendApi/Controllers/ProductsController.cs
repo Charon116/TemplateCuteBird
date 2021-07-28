@@ -9,17 +9,17 @@ namespace TemplateCuteBird.BackendApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    
+
     public class ProductsController : ControllerBase
     {
         private readonly IProductService _productService;
-        
+
         public ProductsController(IProductService productService)
         {
             _productService = productService;
-           
+
         }
-       
+
         [HttpGet("paging")]
         public async Task<IActionResult> GetAllPaging([FromQuery] GetManageProductPagingRequest request)
         {
@@ -40,7 +40,7 @@ namespace TemplateCuteBird.BackendApi.Controllers
         [HttpPost]
         [Consumes("multipart/form-data")] // cho phep truyen du lieu bang form-data
         [Authorize]
-        public async Task<IActionResult> Create([FromForm]ProductCreateRequest request)
+        public async Task<IActionResult> Create([FromForm] ProductCreateRequest request)
         {
             if (!ModelState.IsValid)
             {
@@ -67,18 +67,15 @@ namespace TemplateCuteBird.BackendApi.Controllers
             if (affectedResult == 0)
                 return BadRequest();
 
-           return Ok();
+            return Ok();
         }
 
-        [HttpDelete("productId")]
+        [HttpDelete("{Id}")]
         [Authorize]
-        public async Task<IActionResult> Delete(int productId)
+        public async Task<IActionResult> Delete(int Id)
         {
-            var affectedResult = await _productService.Delete(productId);
-            if (affectedResult == 0)
-                return BadRequest();
-
-            return Ok();
+            var result = await _productService.Delete(Id);
+            return Ok(result);
         }
 
         [HttpPatch("price/{productId}/{newPrice}")] //update 1 phan ban ghi
@@ -94,13 +91,13 @@ namespace TemplateCuteBird.BackendApi.Controllers
 
         //Image
         [HttpPost("{productId}/images")]
-        public async Task<IActionResult> CreateImage(int productId, [FromForm]ProductImageCreateRequest request)
+        public async Task<IActionResult> CreateImage(int productId, [FromForm] ProductImageCreateRequest request)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var imageId = await _productService.AddImage(productId,request);
+            var imageId = await _productService.AddImage(productId, request);
             if (imageId == 0)
                 return BadRequest();
 
@@ -137,7 +134,7 @@ namespace TemplateCuteBird.BackendApi.Controllers
         }
 
         [HttpGet("{productId}/images/{imageId}")]
-        public async Task<IActionResult> GetImageById(int productId,int imageId)
+        public async Task<IActionResult> GetImageById(int productId, int imageId)
         {
             var image = await _productService.GetImageById(imageId);
             if (image == null)
@@ -167,5 +164,6 @@ namespace TemplateCuteBird.BackendApi.Controllers
             var products = await _productService.GetHomeProducts(take);
             return Ok(products);
         }
+
     }
 }

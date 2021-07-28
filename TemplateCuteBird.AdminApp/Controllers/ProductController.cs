@@ -119,5 +119,31 @@ namespace TemplateCuteBird.AdminApp.Controllers
             }
             return categoryAssignRequest;
         }
+
+        [HttpGet]
+        public IActionResult Delete(int Id)
+        {
+            return View(new ProductDeleteRequest()
+            {
+               Id = Id
+            });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(ProductDeleteRequest request)
+        {
+            if (!ModelState.IsValid)
+                return View();
+
+            var result = await _productApiClient.Delete(request.Id);
+            if (result.IsSuccessed)
+            {
+                TempData["result"] = "Delete success";
+                return RedirectToAction("Index");
+                
+            }
+            ModelState.AddModelError("", result.Message);
+            return View(request);
+        }
     }
 }

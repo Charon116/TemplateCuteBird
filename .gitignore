@@ -338,3 +338,6 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/TemplateCuteBird.Application/appsettings.json
+/TemplateCuteBird.BackendApi/wwwroot/user-content
+/TemplateCuteBird.Data/appsettings.json

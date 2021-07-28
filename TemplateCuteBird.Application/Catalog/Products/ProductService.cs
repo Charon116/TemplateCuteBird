@@ -61,17 +61,26 @@ namespace TemplateCuteBird.Application.Catalog.Products
             return product.Id;
         }
 
-        public async Task<int> Delete(int productId)
+        public async Task<ApiResult<int>> Delete(int Id)
         {
-            var product = await _context.Products.FindAsync(productId);
-            if (product == null) throw new TemplateCuteBirdException($"Cannot find a product: {productId}");
-            var images = _context.ProductImages.Where(i => i.ProductId == productId);
+            var product = await _context.Products.FindAsync(Id);
+            if (product == null) return new ApiErrorResult<int>("Id not exsit");
+            var images = _context.ProductImages.Where(i => i.Id == Id);
             foreach (var image in images)
             {
                 await _storageService.DeleteFileAsync(image.ImagePath);
             }
-            _context.Products.Remove(product);
-            return await _context.SaveChangesAsync();
+
+            if(product != null)
+            {
+                _context.Products.Remove(product);
+                await _context.SaveChangesAsync();
+                return new ApiSuccessResult<int>();
+            }
+            return null;
+           
+
+
         }
 
 

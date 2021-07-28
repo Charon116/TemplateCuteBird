@@ -10,11 +10,12 @@ namespace TemplateCuteBird.Application.Catalog.Products
 {
     public interface IProductService
     {
+     
         Task<int> Create(ProductCreateRequest request);
 
         Task<int> Update(ProductUpdateRequest request);
 
-        Task<int> Delete(int productId);
+        Task<ApiResult<int>> Delete(int Id);
 
         Task<ProductViewModel> GetById(int productId);
 
