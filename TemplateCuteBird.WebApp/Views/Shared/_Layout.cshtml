@@ -13,11 +13,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,400;0,700;1,900&display=swap"
           rel="stylesheet" />
-    <link rel="stylesheet" href="/css/home&filter.css" />
+    <link rel="stylesheet" href="/css/Homefilter.css" />
     <link rel="stylesheet" href="/css/User.css" />
     <link rel="stylesheet" href="/css/Order.css" />
     <link rel="stylesheet" href="/css/Detail.css" />
     <link rel="stylesheet" href="/css/Payment1.css" />
+    <link rel="stylesheet" href="/css/themify-icons/themify-icons.css"/>
 
     <title>@ViewData["Title"]</title>
 </head>
@@ -53,7 +54,7 @@
                             <input style="width: 400px" class="form-control mr-sm-2" type="search"
                                    placeholder="Find..." />
                             <button class="btn btn-outline-dark text-white my-2 my-sm-0 bg-dark" type="submit">
-                                <i class="fas fa-search"></i>
+                                <i class="ti-search"></i>
                             </button>
                         </form>
                     </div>
@@ -63,7 +64,7 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="/Home/Privacy">Home</a>
                         </li>
-         
+
                         <li class="nav-item">
                             <a class="nav-link" href="about.html">About</a>
                         </li>
@@ -91,7 +92,9 @@
                                                 padding: 8px 56px;
                                                 display: block;
                                                 background-color: #fff;
-                                                border: none;">Log Out</button>
+                                                border: none;">
+                                                Log Out
+                                            </button>
                                         </form>
                                     </li>
                                 </ul>
@@ -109,60 +112,43 @@
                     </ul>
                 </div>
             </div>
-         
-             @await Component.InvokeAsync("NavBarHeader")
-            
+
+            @await Component.InvokeAsync("NavBarHeader")
+
         </nav>
     </header>
-    @RenderSection("slider",required:false)
+    @RenderSection("slider", required: false)
     <!-- Container -->
     @RenderBody()
 
     <!-- Footer -->
-
-    <footer class="footer text-center d-flex justify-content-between mt-5">
-        <div class="left ml-4">
-            <ul class="nav list-unstyled text-white">
-                <li class="ml-2">
-                    <a href="">Bird Market |</a>
-                </li>
-                <li class="ml-2 mr -2">
-                    <a href=""> Bird Studio | </a>
-                </li>
-                <li class="ml-2 mr -2">
-                    <a href="">Bird Tuts |</a>
-                </li>
-                <li class="ml-2 mr -2">
-                    <a href="">Placeit |</a>
-                </li>
-                <li class="ml-2 mr -2">
-                    <a href="">Share</a>
-                </li>
-            </ul>
+    <!-- Footer -->
+    <div class="bg-dark footer-css">
+        <div class="main-footer font-weight-bold d-flex justify-content-between ml-5">
+            <div class="left-footer">
+                <div class="left-list-item-footer">
+                    <a class="border-right pr-3 pl-2" href="#">About Elements</a>
+                    <a class="border-right pr-3 pl-2" href="#">Monthly Free Files</a>
+                    <a class="border-right pr-3 pl-2" href="#">More Free Files</a>
+                    <a class="border-right pr-3 pl-2" href="#">License</a>
+                    <a class="border-right pr-3 pl-2" href="#">Sitemap</a>
+                    <a class="pr-3 pl-2" href="">Terms & Conditions</a>
+                </div>
+                <div class="text-footer">
+                    © 2021 Envato Elements Pty Ltd. Trademarks and brands are the property of their respective owners.
+                </div>
+            </div>
+            <div class="right-footer">
+                <div class="right-list-item-footer">
+                    <a class=" border rounded-circle p-2 ti-google" href="#"></a>
+                    <a class=" border rounded-circle p-2 ti-facebook" href="#"></a>
+                    <a class=" border rounded-circle p-2 ti-instagram" href="#"></a>
+                    <a class=" border rounded-circle p-2 ti-github" href="#"></a>
+                    <a class=" border rounded-circle p-2 ti-pinterest" href="#"></a>
+                </div>
+            </div>
         </div>
-        <p>
-            <i class="fas fa-copyright mr-2"></i>
-            2021 Copyright By CuteBirds . Please contact us if you need.
-        </p>
-        <div class="right mr-4">
-            <a class="mr-2" href="https://www.youtube.com/" target="_blank">
-                <i class="fab fa-youtube"></i>
-            </a>
-            <a class="mr-2" href="https://www.facebook.com/" target="_blank">
-                <i class="fab fa-facebook"></i>
-            </a>
-            <a class="mr-2" href="https://www.instagram.com/" target="_blank">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a class="mr-2" href="https://twitter.com/" target="_blank">
-                <i class="fab fa-twitter-square"></i>
-            </a>
-            <span href="#" class="language">
-                <i class="fas fa-globe"></i>
-                | English / Vietnamese
-            </span>
-        </div>
-    </footer>
+    </div>
 </body>
 
 </html>

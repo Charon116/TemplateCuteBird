@@ -10,53 +10,75 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log in</title>
+    <title>Đăng nhập</title>
     <link rel="stylesheet" href="/css/login.css">
     <link rel="stylesheet" href="/css/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
 </head>
 
-<body>
-    <div class="main">
-        <div class="wrapped">
-            <div class="container">
-                <div class="left-image">
-                    <img src="/image/signinsignup/clipart1250162.png" alt="">
+<body class="bg-img">
+    <!-- header -->
+    <div class="container-fluid header-height border-bottom d-flex justify-content-between fixed-top">
+        <a class="icon-bird" href="">
+            <img class="border-bottom" src="/image/register/IconBird.png" alt="">
+            <span class="black-cute">Cute<span class="color-bird">Bird</span></span>
+        </a>
+        <div class="mt-3 ma-head">
+            <button href="Register.cshtml" class="ti-user sign-in-button mr-5"> Register</button>
+        </div>
+    </div>
+    <!-- body -->
+    <div class="container body-css d-flex justify-content-center">
+        <div class="form-sign-in w-50 text-justify">
+            <form class="border p-4 rounded background-form" action="">
+                <h5 class="text-sign-in mb-4 text-center">Thành viên đăng nhập</h5>
+                <div class="d-flex flex-column">
+                    <a href="" class="p-2 login-button mb-2"><img src="/image/register/google.png" alt=""> Đăng nhập với Google</a>
+
+                    <a href="" class="p-2 login-button mb-2"><img src="/image/register/124010.png" alt=""> Đăng nhập với Facebook</a>
                 </div>
 
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input type="text" required id="" class="form-control" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="">Mật khẩu</label>
+                    <input type="password" required id="" class="form-control" name="password">
+                </div>
+                <button type="submit" class="btn w-100 font-weight-bold bg-info text-white">Đăng nhập</button>
+                <div class="d-flex justify-content-between">
+                    <a href="#" class="create">Tạo tài khoản</a>
+                    <a href="#" class="link-forgot">Quên mật khẩu</a>
+                </div>
+            </form>
+        </div>
 
-                <div class="right-sign">
-                    <div class="form-main">
-                        <!-- form -->
-                        <div class="login-table">
-                            <a class="icon-login Google" href="#"><i class="ti-google"></i>Continue with Google</a>
-                            <a class="icon-login Facebook" href="#"><i class="ti-facebook"></i>Continue with Facebook</a>
-                        </div>
-
-                        <div style="color: #ccc;" class="text-divider"> Or </div>
-
-                        <form action="/Account/Login" method="post" class="form">
-                            <div class="flex-form">
-                                <label class="nameLabel" for="nameFisrt">Username </label>
-                                <input class="nameInput" type="text" asp-for="UserName">
-                            </div>
-                            <div class="flex-form">
-                                <label class="nameLabel" for="nameLast">Password</label>
-                                <input class="nameInput" type="password" asp-for="Password">
-                            </div>
-                        <button type="submit"  class="sign-up-btn">Sign in</button>
-                        </form>
-
-                        
-                            <!-- <div class="log-btn">Sign in</div> -->
-                        
-
-                        <div class="create-forgot">
-                            <a style="color:rgb(0, 139, 255);font-weight: 600;" href="/Account/Register">Create a Cute Bird Account</a>
-                            <a style="color: #333;" href="Forgetpassword.html">Forgot Password</a>
-                        </div>
-
-                    </div>
-
+    </div>
+    <!-- Footer -->
+    <div class="bg-dark footer-css">
+        <div class="main-footer font-weight-bold d-flex justify-content-between ml-5">
+            <div class="left-footer">
+                <div class="left-list-item-footer">
+                    <a class="border-right pr-3 pl-2" href="#">About Elements</a>
+                    <a class="border-right pr-3 pl-2" href="#">Monthly Free Files</a>
+                    <a class="border-right pr-3 pl-2" href="#">More Free Files</a>
+                    <a class="border-right pr-3 pl-2" href="#">License</a>
+                    <a class="border-right pr-3 pl-2" href="#">Sitemap</a>
+                    <a class="pr-3 pl-2" href="">Terms & Conditions</a>
+                </div>
+                <div class="text-footer">
+                    © 2021 Envato Elements Pty Ltd. Trademarks and brands are the property of their respective owners.
+                </div>
+            </div>
+            <div class="right-footer">
+                <div class="right-list-item-footer">
+                    <a class=" border rounded-circle p-2 ti-google" href="#"></a>
+                    <a class=" border rounded-circle p-2 ti-facebook" href="#"></a>
+                    <a class=" border rounded-circle p-2 ti-instagram" href="#"></a>
+                    <a class=" border rounded-circle p-2 ti-github" href="#"></a>
+                    <a class=" border rounded-circle p-2 ti-pinterest" href="#"></a>
                 </div>
             </div>
         </div>
