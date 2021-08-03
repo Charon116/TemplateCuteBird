@@ -22,5 +22,13 @@ namespace TemplateCuteBird.Application.Systems.User
         Task<ApiResult<bool>> Delete(Guid id);
 
         Task<ApiResult<bool>> RoleAssign(Guid id,RoleAssignRequest request);
+
+        //Hung do this
+
+        Task<ApiResult<string>> ForgotPassword(ForgotPasswordViewModel request);
+
+        Task<ApiResult<bool>> ResetPassword(ResetPasswordViewModel request);
+
+        Task<ApiResult<bool>> ChangePassword(ChangePasswordViewModel model);
     }
 }

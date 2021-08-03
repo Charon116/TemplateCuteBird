@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -127,5 +128,68 @@ namespace TemplateCuteBird.WebApp.Controllers
 
             return principal;
         }
+
+
+        //Hung do this 
+
+        //Forgot Password
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel request)
+        {
+            if (!ModelState.IsValid)
+                return View(request);
+
+            var token = await _userApiClient.ForgotPassword(request);
+            var passwordResetLink = Url.Action("ResetPassword", "Account", new { token, email = request.Email }, Request.Scheme);
+
+            return View("ForgotPasswordConfirmation");
+        }
+
+        [AllowAnonymous]
+        public IActionResult ForgotPasswordConfirmation()
+        {
+            return View();
+        }
+
+
+
+        // Reset Password
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult ResetPassword(string token, string email)
+        {
+            if (token == null || email == null)
+            {
+                ModelState.AddModelError("", "Token is not valid");
+            }
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+        {
+            var resetPasswordVm = new ResetPasswordViewModel()
+            {
+                Token = model.Token,
+                Email = model.Email,
+                Password = model.Password,
+                ConfirmPassword = model.ConfirmPassword
+            };
+
+            var result = await _userApiClient.ResetPassword(resetPasswordVm);
+
+            return View(result.IsSuccessed ? "ResetPasswordConfirmation" : "Error");
+        }
+
     }
 }

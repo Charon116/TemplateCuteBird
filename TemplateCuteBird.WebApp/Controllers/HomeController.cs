@@ -16,19 +16,33 @@ namespace TemplateCuteBird.WebApp.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly ISlideApiClient _slideApiClient;
         private readonly IProductApiClient _productApiClient;
+        private readonly ICategoryApiClient _categoryApiClient;
 
         public HomeController(ILogger<HomeController> logger,
-            ISlideApiClient slideApiClient, IProductApiClient productApiClient)
+            ISlideApiClient slideApiClient, IProductApiClient productApiClient,
+            ICategoryApiClient categoryApiClient)
         {
             _logger = logger;
             _slideApiClient = slideApiClient;
             _productApiClient = productApiClient;
+            _categoryApiClient = categoryApiClient;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            
-            return View();
+            var viewModel = new HomeViewModel
+            {
+                Categories = await _categoryApiClient.GetAll(),
+                HomeProducts = await _productApiClient.GetHomeProducts(SystemConstants.ProductSettings.NumberHomeProducts)
+            };
+
+
+            foreach (var item in viewModel.HomeProducts)
+            {
+                var category = await _categoryApiClient.GetById(item.Id);
+                item.Category = category;
+            }
+            return View(viewModel);
         }
 
         public async Task<IActionResult> Privacy()

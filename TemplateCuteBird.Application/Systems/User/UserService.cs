@@ -211,6 +211,45 @@ namespace TemplateCuteBird.Application.Systems.User
             return new ApiErrorResult<bool>("Update not successful");
         }
 
-        
+
+        //Hung do this 
+
+        //Forgot Password
+        public async Task<ApiResult<string>> ForgotPassword(ForgotPasswordViewModel request)
+        {
+            var user = await _userManager.FindByEmailAsync(request.Email);
+            if (user != null && await _userManager.IsEmailConfirmedAsync(user))
+            {
+                var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+                return new ApiSuccessResult<string>(token);
+            }
+            return new ApiErrorResult<string>($"Error to recover passwords");
+        }
+
+        //Reset password
+        public async Task<ApiResult<bool>> ResetPassword(ResetPasswordViewModel request)
+        {
+            var user = await _userManager.FindByEmailAsync(request.Email);
+            if (user == null)
+                return new ApiErrorResult<bool>($"Cannot find  {request.Email}");
+            var result = await _userManager.ResetPasswordAsync(user, request.Token, request.Password);
+            return new ApiSuccessResult<bool>();
+        }
+
+        //Change password
+        public async Task<ApiResult<bool>> ChangePassword(ChangePasswordViewModel model)
+        {
+            var user = await _userManager.FindByIdAsync(model.UserId);
+            var result = await _userManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
+
+            if (result.Succeeded)
+            {
+                await _signInManager.RefreshSignInAsync(user);
+                return new ApiSuccessResult<bool>();
+            }
+
+            return new ApiErrorResult<bool>("Failed to change Password");
+        }
+
     }
 }

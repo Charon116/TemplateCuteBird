@@ -42,7 +42,7 @@ namespace TemplateCuteBird.WebApp.Controllers
             return View(new ProductCategoryViewModel()
             {
                 Category = await _categoryApiClient.GetById(id),
-                Products = products
+                Products = products,
             });
         }
 

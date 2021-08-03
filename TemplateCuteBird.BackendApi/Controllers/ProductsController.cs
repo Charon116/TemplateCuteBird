@@ -37,6 +37,8 @@ namespace TemplateCuteBird.BackendApi.Controllers
             return Ok(product);
         }
 
+
+
         [HttpPost]
         [Consumes("multipart/form-data")] // cho phep truyen du lieu bang form-data
         [Authorize]

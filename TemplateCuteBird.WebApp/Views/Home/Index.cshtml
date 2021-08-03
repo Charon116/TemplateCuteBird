@@ -1,6 +1,10 @@
-﻿
+﻿@model HomeViewModel
+@using TemplateCuteBird.ViewModels.Catalog.Products;
+@inject Microsoft.Extensions.Configuration.IConfiguration Configuration;
+
 @{
     ViewData["Title"] = "Home Page";
+
 }
 
 <div class="container">
@@ -15,107 +19,49 @@
     </div>
     <!-- Template -->
     <section class="template">
-        <div class="row text-center mb-3">
-            <div class="col-3">
-                <a href="#">
-                    <img src="/image/homepage/font.png" alt="" />
-                </a>
-                <p class="text-left ml-3">
-                    <a class="nav-link" href="#">
-                        Fonts
-                        <br />
-                        10.900+
-                    </a>
-                </p>
-            </div>
-            <div class="col-3">
-                <a href="#">
-                    <img src="/image/homepage/presentation.png" alt="" />
-                </a>
-                <p class="text-left ml-3">
-                    <a class="nav-link" href="#">
-                        Presentation templates
-                        <br />
-                        50.394+
-                    </a>
-                </p>
-            </div>
-            <div class="col-3">
-                <a href="#">
-                    <img src="/image/homepage/graphics.png" alt="" />
-                </a>
-                <p class="text-left ml-3">
-                    <a class="nav-link" href="#">
-                        Graphic templates
-                        <br />
-                        42.482+
-                    </a>
-                </p>
-            </div>
-            <div class="col-3">
-                <a href="#">
-                    <img src="/image/homepage/audio.png" height="150px" width="245px" alt="" />
-                </a>
-                <p class="text-left ml-3">
-                    <a class="nav-link" href="#">
-                        Audio
-                        <br />
-                        12.421+
-                    </a>
-                </p>
-            </div>
-        </div>
 
         <div class="row text-center mb-3">
-            <div class="col-3">
-                <a href="#">
-                    <img src="/image/homepage/video.png" alt="" />
-                </a>
-                <p class="text-left ml-3">
-                    <a class="nav-link" href="#">
-                        Video Template
-                        <br />
-                        21.900+
+            @foreach (var item in Model.HomeProducts)
+            {
+                var url = $"/products/{item.Id}";
+
+                <div class="col-3">
+                    <a href="@url">
+                        <img src="@(Configuration["BaseAddress"] + item.ThumbnailImage)" alt="@item.Name" />
                     </a>
-                </p>
-            </div>
-            <div class="col-3">
-                <a href="#">
-                    <img src="/image/homepage/wordpress.png" alt="" />
-                </a>
-                <p class="text-left ml-3">
-                    <a class="nav-link" href="#">
-                        WordPress
-                        <br />
-                        3.342+
-                    </a>
-                </p>
-            </div>
-            <div class="col-3">
-                <a href="#">
-                    <img src="/image/homepage/3D.png" alt="" />
-                </a>
-                <p class="text-left ml-3">
-                    <a class="nav-link" href="#">
-                        3D
-                        <br />
-                        4.293+
-                    </a>
-                </p>
-            </div>
-            <div class="col-3">
-                <a href="#">
-                    <img src="/image/homepage/photos.png" alt="" />
-                </a>
-                <p class="text-left ml-3">
-                    <a class="nav-link" href="#">
-                        Photos
-                        <br />
-                        9.421+
-                    </a>
-                </p>
-            </div>
+                    <p class="text-left ml-3">
+                        <a class="nav-link" href="#">
+                            @item.Name
+                            <br />
+                            @item.ViewCount
+                        </a>
+                    </p>
+                </div>
+            }
+
         </div>
+        <div class="row text-center mb-3">
+            @foreach (var item in Model.HomeProducts)
+            {
+                var url = $"/products/{item.Id}";
+
+                <div class="col-3">
+                    <a href="@url">
+                        <img src="@(Configuration["BaseAddress"] + item.ThumbnailImage)" alt="@item.Name" />
+                    </a>
+                    <p class="text-left ml-3">
+                        <a class="nav-link" href="#">
+                            @item.Name
+                            <br />
+                            @item.ViewCount
+                        </a>
+                    </p>
+                </div>
+            }
+
+        </div>
+
+
 
         <button class="
             common

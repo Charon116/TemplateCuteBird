@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TemplateCuteBird.ViewModels.Catalog.Categories;
 
 namespace TemplateCuteBird.ViewModels.Catalog.Products
 {
@@ -19,5 +20,6 @@ namespace TemplateCuteBird.ViewModels.Catalog.Products
         public bool? IsFeatured { get; set; }
         public List<string> Categories { get; set; } = new List<string>();
 
+        public CategoryViewModel Category { get; set; }
     }
 }

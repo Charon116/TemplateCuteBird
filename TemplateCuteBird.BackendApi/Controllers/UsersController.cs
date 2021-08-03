@@ -104,5 +104,29 @@ namespace TemplateCuteBird.BackendApi.Controllers
             }
             return Ok(result);
         }
+
+         [HttpPost("forgotPassword")]
+        [AllowAnonymous]
+        public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordViewModel request)
+        {
+            var result = await _userService.ForgotPassword(request);
+            if (!result.IsSuccessed)
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
+        }
+
+        [HttpPost("resetPassword")]
+        [AllowAnonymous]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordViewModel request)
+        {
+            var result = await _userService.ResetPassword(request);
+            if (!result.IsSuccessed)
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
+        }
     }
 }

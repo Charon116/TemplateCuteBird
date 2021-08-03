@@ -41,6 +41,8 @@ namespace TemplateCuteBird.ApiIntegration
             return JsonConvert.DeserializeObject<ApiErrorResult<string>>(await response.Content.ReadAsStringAsync());
         }
 
+      
+
         public async Task<ApiResult<bool>> Delete(Guid id)
         {
             var sessions = _httpContextAccessor.HttpContext.Session.GetString("Token");
@@ -55,6 +57,8 @@ namespace TemplateCuteBird.ApiIntegration
 
             return JsonConvert.DeserializeObject<ApiErrorResult<bool>>(body);
         }
+
+     
 
         public async Task<ApiResult<UserViewModel>> GetById(Guid id)
         {
@@ -100,6 +104,8 @@ namespace TemplateCuteBird.ApiIntegration
             return JsonConvert.DeserializeObject<ApiErrorResult<bool>>(result);
         }
 
+    
+
         public async Task<ApiResult<bool>> RoleAssign(Guid id, RoleAssignRequest request)
         {
             var client = _httpClientFactory.CreateClient();
@@ -134,6 +140,50 @@ namespace TemplateCuteBird.ApiIntegration
                 return JsonConvert.DeserializeObject<ApiSuccessResult<bool>>(result);
 
             return JsonConvert.DeserializeObject<ApiErrorResult<bool>>(result);
+        }
+
+
+
+        //Hung do this 
+
+        //Forgot Password
+        public async Task<ApiResult<string>> ForgotPassword(ForgotPasswordViewModel model)
+        {
+            var client = _httpClientFactory.CreateClient();
+            // BaseAddress lấy trong appsettings.Development.json bằng Configuratrion
+            client.BaseAddress = new Uri(_configuration["BaseAddress"]);
+            var sessions = _httpContextAccessor.HttpContext.Session.GetString("Token");
+
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", sessions);
+
+            var json = JsonConvert.SerializeObject(model);
+
+            var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PostAsync($"/api/users/forgotPassword", httpContent);
+
+            var result = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                // Deserialize thành 1 object cùng type với return type BackendApi trả về ở đây là ApiSuccessResult
+                return JsonConvert.DeserializeObject<ApiSuccessResult<string>>(result);
+
+            }
+            return JsonConvert.DeserializeObject<ApiErrorResult<string>>(result);
+        }
+
+        //Reset Password
+        public Task<ApiResult<bool>> ResetPassword(ResetPasswordViewModel model)
+        {
+            throw new NotImplementedException();
+        }
+
+        //Change Password
+
+        public Task<ApiResult<bool>> ChangePassword(ChangePasswordViewModel model)
+        {
+            throw new NotImplementedException();
         }
     }
 }
