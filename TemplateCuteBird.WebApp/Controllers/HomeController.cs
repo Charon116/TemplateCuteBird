@@ -16,6 +16,7 @@ namespace TemplateCuteBird.WebApp.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly ISlideApiClient _slideApiClient;
         private readonly IProductApiClient _productApiClient;
+        
 
         public HomeController(ILogger<HomeController> logger,
             ISlideApiClient slideApiClient, IProductApiClient productApiClient)
@@ -24,12 +25,17 @@ namespace TemplateCuteBird.WebApp.Controllers
             _slideApiClient = slideApiClient;
             _productApiClient = productApiClient;
         }
-
-        public IActionResult Index()
+        //duy lam cai nay
+        public async Task<IActionResult> Index()
         {
+            var viewModel = new HomeViewModel
+            {
+                HomeProducts = await _productApiClient.GetHomeProducts(SystemConstants.ProductSettings2.NumberGetHomeProducts)
+            };
+            return View(viewModel);
+        } 
             
-            return View();
-        }
+       
 
         public async Task<IActionResult> Privacy()
         {

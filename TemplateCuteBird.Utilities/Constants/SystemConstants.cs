@@ -19,5 +19,13 @@ namespace TemplateCuteBird.Utilities.Constants
         {
             public const int NumberHomeProducts = 6;
         }
+
+        //duy lam cai nay
+        public class ProductSettings2
+        {
+            public const int NumberGetHomeProducts = 3;
+        }
+             
+     
     }
 }

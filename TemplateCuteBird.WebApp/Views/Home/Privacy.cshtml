@@ -52,19 +52,7 @@
     <h3 class="title">Something new template!</h3>
     <div class="container">
         <div class="row">
-            @foreach (var item in Model.HomeProducts)
-            {
-                var url = $"/products/{item.Id}";
-                <div class="col-4">
-                    <a href="@url" class="card">
-                        <img class="card-img-top" style="width:350px;height:250px" src="@(Configuration["BaseAddress"] + item.ThumbnailImage)" alt="@item.Name"  />
-                        <div class="card-body">
-                            <h5 class="card-title">@item.Name</h5>
-                            <p class="card-text">@item.Title</p>
-                        </div>
-                    </a>
-                </div>
-            }
+
         </div>
     </div>
     <button type="button" class="button2">See more</button>
