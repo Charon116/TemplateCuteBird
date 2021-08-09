@@ -6,12 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MailKit" Version="2.12.0" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.5.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EmailServices\EmailServices.csproj" />
     <ProjectReference Include="..\TemplateCuteBird.ApiIntegration\TemplateCuteBird.ApiIntegration.csproj" />
     <ProjectReference Include="..\TemplateCuteBird.Utilities\TemplateCuteBird.Utilities.csproj" />
     <ProjectReference Include="..\TemplateCuteBird.ViewModels\TemplateCuteBird.ViewModels.csproj" />

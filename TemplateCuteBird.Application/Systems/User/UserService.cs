@@ -218,7 +218,7 @@ namespace TemplateCuteBird.Application.Systems.User
         public async Task<ApiResult<string>> ForgotPassword(ForgotPasswordViewModel request)
         {
             var user = await _userManager.FindByEmailAsync(request.Email);
-            if (user != null && await _userManager.IsEmailConfirmedAsync(user))
+            if (user != null)
             {
                 var token = await _userManager.GeneratePasswordResetTokenAsync(user);
                 return new ApiSuccessResult<string>(token);

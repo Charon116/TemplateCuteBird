@@ -19,7 +19,6 @@ namespace TemplateCuteBird.ViewModels.Catalog.Products
         public string ThumbnailImage { get; set; }
         public bool? IsFeatured { get; set; }
         public List<string> Categories { get; set; } = new List<string>();
-
         public CategoryViewModel Category { get; set; }
     }
 }

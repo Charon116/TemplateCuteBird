@@ -128,5 +128,16 @@ namespace TemplateCuteBird.BackendApi.Controllers
             }
             return Ok(result);
         }
+
+        [HttpPost("changePassword")]
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordViewModel model)
+        {
+            var result = await _userService.ChangePassword(model);
+            if (!result.IsSuccessed)
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
+        }
     }
 }

@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using EmailServices;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -16,6 +18,7 @@ using System.Threading.Tasks;
 using TemplateCuteBird.ApiIntegration;
 using TemplateCuteBird.Utilities.Constants;
 using TemplateCuteBird.ViewModels.Systems.Users;
+using TemplateCuteBird.WebApp.Models;
 
 namespace TemplateCuteBird.WebApp.Controllers
 {
@@ -23,10 +26,13 @@ namespace TemplateCuteBird.WebApp.Controllers
     {
         private readonly IUserApiClient _userApiClient;
         private readonly IConfiguration _configuration;
-        public AccountController(IUserApiClient userApiClient, IConfiguration configuration)
+        private readonly ILogger<AccountController> logger;
+
+        public AccountController(IUserApiClient userApiClient, IConfiguration configuration, ILogger<AccountController> logger)
         {
             _userApiClient = userApiClient;
             _configuration = configuration;
+            this.logger = logger;
         }
         [HttpGet]
         public IActionResult Login()
@@ -149,7 +155,11 @@ namespace TemplateCuteBird.WebApp.Controllers
                 return View(request);
 
             var token = await _userApiClient.ForgotPassword(request);
-            var passwordResetLink = Url.Action("ResetPassword", "Account", new { token, email = request.Email }, Request.Scheme);
+            var passwordResetLink = Url.Action(nameof(ResetPassword), "Account",
+                                    new { email = request.Email, token = token.ResultObj }, Request.Scheme);
+
+            var email = new EmailServices.EmailServices();
+            email.Send("noreply_cutebirds@gmail.com", request.Email, "Link khôi phục mật khẩu", passwordResetLink);
 
             return View("ForgotPasswordConfirmation");
         }

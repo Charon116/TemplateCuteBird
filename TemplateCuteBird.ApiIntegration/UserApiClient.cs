@@ -174,16 +174,58 @@ namespace TemplateCuteBird.ApiIntegration
         }
 
         //Reset Password
-        public Task<ApiResult<bool>> ResetPassword(ResetPasswordViewModel model)
+        public async Task<ApiResult<bool>> ResetPassword(ResetPasswordViewModel model)
         {
-            throw new NotImplementedException();
+            var client = _httpClientFactory.CreateClient();
+            // BaseAddress lấy trong appsettings.Development.json bằng Configuratrion
+            client.BaseAddress = new Uri(_configuration["BaseAddress"]);
+            var sessions = _httpContextAccessor.HttpContext.Session.GetString("Token");
+
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", sessions);
+
+            var json = JsonConvert.SerializeObject(model);
+
+            var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PostAsync($"/api/users/resetPassword", httpContent);
+
+            var result = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                // Deserialize thành 1 object cùng type với return type BackendApi trả về ở đây là ApiSuccessResult
+                return JsonConvert.DeserializeObject<ApiSuccessResult<bool>>(result);
+
+            }
+            return JsonConvert.DeserializeObject<ApiErrorResult<bool>>(result);
         }
 
         //Change Password
 
-        public Task<ApiResult<bool>> ChangePassword(ChangePasswordViewModel model)
+        public async Task<ApiResult<bool>> ChangePassword(ChangePasswordViewModel model)
         {
-            throw new NotImplementedException();
+            var client = _httpClientFactory.CreateClient();
+            // BaseAddress lấy trong appsettings.Development.json bằng Configuratrion
+            client.BaseAddress = new Uri(_configuration["BaseAddress"]);
+            var sessions = _httpContextAccessor.HttpContext.Session.GetString("Token");
+
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", sessions);
+
+            var json = JsonConvert.SerializeObject(model);
+
+            var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PostAsync($"/api/users/changePassword", httpContent);
+
+            var result = await response.Content.ReadAsStringAsync();
+
+            if (response.IsSuccessStatusCode)
+            {
+                // Deserialize thành 1 object cùng type với return type BackendApi trả về ở đây là ApiSuccessResult
+                return JsonConvert.DeserializeObject<ApiSuccessResult<bool>>(result);
+
+            }
+            return JsonConvert.DeserializeObject<ApiErrorResult<bool>>(result);
         }
     }
 }

@@ -30,9 +30,10 @@ namespace TemplateCuteBird.WebApp.Controllers
 
         public async Task<IActionResult> Index()
         {
+
             var viewModel = new HomeViewModel
             {
-                Categories = await _categoryApiClient.GetAll(),
+                //Categories = await _categoryApiClient.GetAll(),
                 HomeProducts = await _productApiClient.GetHomeProducts(SystemConstants.ProductSettings.NumberHomeProducts)
             };
 
@@ -42,6 +43,8 @@ namespace TemplateCuteBird.WebApp.Controllers
                 var category = await _categoryApiClient.GetById(item.Id);
                 item.Category = category;
             }
+            
+
             return View(viewModel);
         }
 
