@@ -36,7 +36,8 @@ namespace TemplateCuteBird.WebApp.Controllers
             var viewModel = new HomeViewModel
             {
                 Slides = await _slideApiClient.GetAll(),
-                HomeProducts = await _productApiClient.GetHomeProducts(SystemConstants.ProductSettings.NumberHomeProducts)
+                HomeProducts = await _productApiClient.GetHomeProducts(SystemConstants.ProductSettings.NumberHomeProducts),
+                PictureProducts = await _productApiClient.GetPictureProducts(SystemConstants.ProductSettings.NumberPictureProducts, SystemConstants.ProductSettings.PictureProduct)
             };
             return View(viewModel);
         }

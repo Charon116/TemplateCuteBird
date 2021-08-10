@@ -12,5 +12,7 @@ namespace TemplateCuteBird.WebApp.Models
         public List<SlideViewModel> Slides { get; set; } 
 
         public List<ProductViewModel> HomeProducts { get; set; }
+        public List<ProductViewModel> PictureProducts { get; set; }
+
     }
 }

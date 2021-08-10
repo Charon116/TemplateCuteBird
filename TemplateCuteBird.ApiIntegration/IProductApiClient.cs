@@ -19,5 +19,7 @@ namespace TemplateCuteBird.ApiIntegration
         Task<ProductViewModel> GetById(int id);
 
         Task<List<ProductViewModel>> GetHomeProducts(int take);
+        //thêm nè 
+        Task<List<ProductViewModel>> GetPictureProducts(int takepicture, string nameCategory);
     }
 }

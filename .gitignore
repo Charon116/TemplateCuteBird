@@ -338,3 +338,4 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/TemplateCuteBird.BackendApi/wwwroot/user-content

@@ -104,5 +104,11 @@ namespace TemplateCuteBird.ApiIntegration
             var data = await GetListAsync<ProductViewModel>($"/api/products/userProduct/{take}");
             return data;
         }
+
+        public async Task<List<ProductViewModel>> GetPictureProducts(int takepicture, string nameCategory)
+        {
+            var data = await GetListAsync<ProductViewModel>($"/api/products/userProductPicture/{takepicture}");
+            return data;
+        }
     }
 }

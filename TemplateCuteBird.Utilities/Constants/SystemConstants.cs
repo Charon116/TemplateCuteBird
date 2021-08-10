@@ -18,6 +18,8 @@ namespace TemplateCuteBird.Utilities.Constants
         public class ProductSettings
         {
             public const int NumberHomeProducts = 6;
+            public const int NumberPictureProducts = 3;
+            public const string PictureProduct = "Picture";
         }
     }
 }

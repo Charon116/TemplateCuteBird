@@ -74,23 +74,15 @@
     <h3 class="title">Picture</h3>
     <div class="container">
         <div class="row">
-            <div class="col-3">
-                <img class="card-img-top" src="/image/user/city.jpg" width="350px" height="270px" alt="Card image cap">
-                <h4>City</h4>
+            @foreach (var item in Model.PictureProducts)
+                    {
+                        var url = $"/products/{item.Id}";
+            <div class="col-4">
+                <img class="card-img-top" src="@(Configuration["BaseAddress"] + item.ThumbnailImage)" style=" width: 350px ;height:270px" alt="Card image cap">
+               
             </div>
+            }
 
-            <div class="col-3">
-                <img class="card-img-top" src="/image/user/car.jpg" width="350px" height="270px" alt="Card image cap">
-                <h4>Car</h4>
-            </div>
-            <div class="col-3">
-                <img class="card-img-top" src="/image/user/natural.jpg" width="350px" height="270px" alt="Card image cap">
-                <h4>Natural</h4>
-            </div>
-            <div class="col-3">
-                <img class="card-img-top" src="/image/user/animal.jpg" width="350px" height="270px" alt="Card image cap">
-                <h4>Animal</h4>
-            </div>
 
 
 

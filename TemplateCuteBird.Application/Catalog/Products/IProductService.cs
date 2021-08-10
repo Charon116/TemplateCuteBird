@@ -21,6 +21,7 @@ namespace TemplateCuteBird.Application.Catalog.Products
         Task<bool> UpdatePrice(int productId, decimal newPrice);
 
         Task<bool> UpdateStock(int productId, int addedQuanity);
+        
 
         Task<PagedResult<ProductViewModel>> GetAllPaging(GetManageProductPagingRequest request);
 
@@ -39,5 +40,7 @@ namespace TemplateCuteBird.Application.Catalog.Products
         Task<ApiResult<bool>> CategoryAssign(int id, CategoryAssignRequest request);
 
         Task<List<ProductViewModel>> GetHomeProducts(int take);
+
+        Task<List<ProductViewModel>> GetPictureProducts(int takepicture, string nameCategory);
     }
 }

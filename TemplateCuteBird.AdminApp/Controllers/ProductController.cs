@@ -25,7 +25,7 @@ namespace TemplateCuteBird.AdminApp.Controllers
             _configuration = configuration;
             _categoryApiClient = categoryApiClient;
         }
-        public async Task<IActionResult> Index(string keyword,int? categoryId, int pageIndex = 1, int pageSize = 10)
+        public async Task<IActionResult> Index(string keyword,int? categoryId, int pageIndex = 1, int pageSize = 20)
         {
 
             var request = new GetManageProductPagingRequest()
@@ -36,6 +36,8 @@ namespace TemplateCuteBird.AdminApp.Controllers
                 CategoryId = categoryId
             };
             var data = await _productApiClient.GetPagings(request);
+            
+
             ViewBag.Keyword = keyword;
             var categories = await _categoryApiClient.GetAll();
             ViewBag.Categories = categories.Select(x => new SelectListItem()

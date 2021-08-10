@@ -345,8 +345,10 @@ namespace TemplateCuteBird.Application.Catalog.Products
             //1. Select join
             var query = from p in _context.Products
                         join pic in _context.ProductInCategories on p.Id equals pic.ProductId into ppic
+                        
                         from pic in ppic.DefaultIfEmpty()
                         join pi in _context.ProductImages on p.Id equals pi.ProductId into ppi
+                        
                         from pi in ppi.DefaultIfEmpty()
                         join c in _context.Categories on pic.CategoryId equals c.Id into picc
                         from c in picc.DefaultIfEmpty()
@@ -369,5 +371,57 @@ namespace TemplateCuteBird.Application.Catalog.Products
 
             return data;
         }
+
+        public async Task<List<ProductViewModel>> GetPictureProducts(int takepicture, string nameCategory)
+        {
+            /* var query = from c in _context.Categories
+                         join pc in _context.ProductInCategories on c.Id equals pc.CategoryId
+                         join p in _context.Products on pc.ProductId equals p.Id
+                         join pi in _context.ProductImages on p.Id equals pi.ProductId
+                         where c.Name.Equals(nameCategory, StringComparison.OrdinalIgnoreCase) // PICTURE   picTUre
+                                 && pi.IsDefault == true // Anh dai dien
+                         select new { c, pc, p, pi };*/
+           /* var query = from p in _context.Products
+                        join pic in _context.ProductInCategories on p.Id equals pic.ProductId into ppic
+                        from pic in ppic.DefaultIfEmpty()
+                        join pi in _context.ProductImages on p.Id equals pi.ProductId into ppi
+
+                        from pi in ppi.DefaultIfEmpty()
+                        join c in _context.Categories on pic.CategoryId equals c.Id into picc
+                        from c in picc.DefaultIfEmpty()
+                        where pi == null || pi.IsDefault == true
+                        select new { p, pic, pi };*/
+
+            var query = from c in _context.Categories
+                        join pc in _context.ProductInCategories on c.Id equals pc.CategoryId into pcc
+                        from pc in pcc.DefaultIfEmpty()
+
+                        join p in _context.Products on pc.ProductId equals p.Id into ppcc
+                        from p in ppcc.DefaultIfEmpty()
+
+                        join pi in _context.ProductImages on p.Id equals pi.ProductId into pii
+                        from pi in pii.DefaultIfEmpty()
+
+                        where pi.IsDefault == true || pi == null // Anh dai dien
+                        select new { c, pc, p, pi };
+
+            var data = await query.OrderByDescending(x => x.p.DateCreated).Take(takepicture)
+                .Select(x => new ProductViewModel()
+                {
+                    Id = x.p.Id,
+                    Name = x.p.Name,
+                    DateCreated = x.p.DateCreated,
+                    Title = x.p.Title,
+                    Detail = x.p.Detail,
+                    Price = x.p.Price,
+                    Stock = x.p.Stock,
+                    ViewCount = x.p.ViewCount,
+                    ThumbnailImage = x.pi.ImagePath
+                }).ToListAsync();
+
+            return data;
+        }
+
+        
     }
 }

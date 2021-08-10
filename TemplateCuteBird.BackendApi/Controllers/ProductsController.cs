@@ -167,5 +167,12 @@ namespace TemplateCuteBird.BackendApi.Controllers
             var products = await _productService.GetHomeProducts(take);
             return Ok(products);
         }
+        [HttpGet("userProductPicture/{takepicture}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetPictureProducts(int takepicture,string nameCategory)
+        {
+            var products = await _productService.GetPictureProducts(takepicture,nameCategory);
+            return Ok(products);
+        }
     }
 }
